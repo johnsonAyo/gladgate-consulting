@@ -130,7 +130,7 @@ export default function Services() {
       <div className="max-w-4xl mx-auto px-5 md:px-10 section flex flex-col gap-16">
         {serviceDetails.map((s, i) => (
           <div key={s.id} id={s.id} className="scroll-mt-28">
-            <h2 className="mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "clamp(26px, 3.8vw, 40px)", color: "var(--text)" }}>
+            <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "clamp(26px, 3.8vw, 40px)", color: "var(--text)", marginBottom: "40px" }}>
               {s.title}
             </h2>
             <div className="flex flex-col gap-5">
