@@ -1,32 +1,29 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const slides = [
   {
-    img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1800&q=85",
-    tagline: "10 Years of Experience",
-    headline: "Unlock global adventures through our visa and passport services.",
-    sub: "",
+    img: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1500&q=86",
+    label: "Study, visas, holidays, flights",
+    headline: "Travel plans handled with paperwork expertise.",
+    sub: "From the first checklist to the final booking, Gladgate keeps your journey organised, realistic, and ready to move.",
+    note: "Consultation slots available this week",
   },
   {
-    img: "https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=1800&q=85",
-    tagline: "",
-    headline: "Visa refusal resolution.",
-    sub: "We offer expert assistance to contest your UK visa refusal.",
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1500&q=86",
+    label: "Visa support",
+    headline: "Clear routes through complex visa decisions.",
+    sub: "Get a careful review of your circumstances, supporting documents, and submission timeline before you apply.",
+    note: "Evidence review and refusal guidance",
   },
   {
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85",
-    tagline: "",
-    headline: "Seamless visa services.",
-    sub: "Simplifying global travel with hassle-free visa processing.",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1800&q=85",
-    tagline: "",
-    headline: "Your dream trip starts here.",
-    sub: "Study abroad, holidays, and flights, handled from start to finish.",
+    img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=86",
+    label: "Tailored trips",
+    headline: "Holidays and flights built around real budgets.",
+    sub: "We compare routes, stays, cover, and travel details so your trip feels considered from door to door.",
+    note: "Flights, hotels, insurance, tours",
   },
 ];
 
@@ -35,67 +32,64 @@ export default function HeroCarousel() {
   const indexRef = useRef(0);
 
   useEffect(() => {
-    const id = setInterval(() => {
+    const id = window.setInterval(() => {
       const next = (indexRef.current + 1) % slides.length;
       indexRef.current = next;
       setCurrent(next);
-    }, 5000);
-    return () => clearInterval(id);
+    }, 5600);
+
+    return () => window.clearInterval(id);
   }, []);
 
-  function goTo(i: number) {
-    indexRef.current = i;
-    setCurrent(i);
+  function goTo(index: number) {
+    indexRef.current = index;
+    setCurrent(index);
   }
 
   const slide = slides[current];
 
   return (
-    <section className="relative overflow-hidden" style={{ minHeight: "80vh", display: "flex", alignItems: "center" }}>
-      {/* Slides */}
-      {slides.map((s, i) => (
-        <div key={i} className="absolute inset-0" style={{ opacity: i === current ? 1 : 0, transition: "opacity 1s ease-in-out", zIndex: i === current ? 1 : 0 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={s.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
+    <section className="hero-shell">
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <p className="eyebrow">{slide.label}</p>
+          <h1 key={`title-${current}`}>{slide.headline}</h1>
+          <p>{slide.sub}</p>
+          <div className="hero-actions">
+            <Link href="/quote" className="btn btn-primary">Get a free quote</Link>
+            <Link href="/services" className="btn btn-outline">View services</Link>
+          </div>
+          <div className="hero-proof" aria-label="Gladgate proof points">
+            <span><strong>10+</strong> years</span>
+            <span><strong>98%</strong> visa success</span>
+            <span><strong>80+</strong> countries</span>
+          </div>
         </div>
-      ))}
 
-      {/* Overlay */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(8,15,30,0.6) 0%, rgba(8,15,30,0.3) 55%, rgba(8,15,30,0.08) 100%)", zIndex: 2 }} />
-
-      {/* Content */}
-      <div className="relative w-full max-w-6xl mx-auto px-5 md:px-10" style={{ zIndex: 3 }}>
-        <div className="max-w-2xl">
-          {slide.tagline && (
-            <p className="eyebrow mb-7" style={{ color: "var(--yellow)" }}>
-              {slide.tagline}
-            </p>
-          )}
-          <h1 key={current} style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "clamp(32px, 4.4vw, 54px)", lineHeight: 1.18, color: "#fff", animation: "fadeUp 0.6s ease" }}>
-            {slide.headline}
-          </h1>
-          {slide.sub && (
-            <p className="mt-6 text-lg" style={{ color: "rgba(255,255,255,0.82)", maxWidth: "520px", fontFamily: "'Inter', sans-serif", fontWeight: 300, lineHeight: 1.75 }}>
-              {slide.sub}
-            </p>
-          )}
-          <div className="mt-11">
-            <Link href="/quote" className="btn btn-primary">
-              Get a Free Quote →
-            </Link>
+        <div className="hero-media">
+          {slides.map((item, index) => (
+            <div key={item.img} className="hero-media__slide" style={{ opacity: index === current ? 1 : 0 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={item.img} alt="" />
+            </div>
+          ))}
+          <div className="hero-media__card">
+            <span>Next step</span>
+            <p>{slide.note}</p>
+          </div>
+          <div className="hero-dots" aria-label="Hero slides">
+            {slides.map((item, index) => (
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => goTo(index)}
+                aria-label={`Show ${item.label}`}
+                aria-pressed={index === current}
+              />
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Dot indicators */}
-      <div className="absolute flex items-center gap-2" style={{ bottom: "32px", left: "50%", transform: "translateX(-50%)", zIndex: 4 }}>
-        {slides.map((_, i) => (
-          <button key={i} onClick={() => goTo(i)} aria-label={`Slide ${i + 1}`}
-            style={{ width: i === current ? "28px" : "8px", height: "8px", borderRadius: "999px", backgroundColor: i === current ? "#fff" : "rgba(255,255,255,0.4)", border: "none", cursor: "pointer", padding: 0, transition: "all 0.4s ease" }} />
-        ))}
-      </div>
-
-      <style>{`@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }`}</style>
     </section>
   );
 }

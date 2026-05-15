@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 2500, suffix: "+", label: "Happy Travellers" },
-  { value: 98, suffix: "%", label: "Visa Success Rate" },
-  { value: 80, suffix: "+", label: "Countries Covered" },
-  { value: 10, suffix: " Yrs", label: "Experience" },
+  { value: 2500, suffix: "+", label: "Travellers supported" },
+  { value: 98, suffix: "%", label: "Visa success rate" },
+  { value: 80, suffix: "+", label: "Countries covered" },
+  { value: 10, suffix: "+", label: "Years in travel" },
 ];
 
 function easeOut(t: number): number {
@@ -25,12 +25,9 @@ function useCountUp(target: number, duration: number, active: boolean): number {
     const tick = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = easeOut(progress);
-      setCount(Math.round(eased * target));
+      setCount(Math.round(easeOut(progress) * target));
 
-      if (progress < 1) {
-        rafRef.current = requestAnimationFrame(tick);
-      }
+      if (progress < 1) rafRef.current = requestAnimationFrame(tick);
     };
 
     rafRef.current = requestAnimationFrame(tick);
@@ -38,80 +35,27 @@ function useCountUp(target: number, duration: number, active: boolean): number {
     return () => {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
-  }, [active, target, duration]);
+  }, [active, duration, target]);
 
   return count;
 }
 
-function StatItem({
-  value,
-  suffix,
-  label,
-  active,
-  isLast,
-}: {
+function StatItem({ value, suffix, label, active }: {
   value: number;
   suffix: string;
   label: string;
   active: boolean;
-  isLast: boolean;
 }) {
-  const count = useCountUp(value, 1800, active);
+  const count = useCountUp(value, 1700, active);
 
   return (
-    <div
-      style={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        textAlign: "center",
-        padding: "0 24px",
-      }}
-    >
-      {/* Divider on right (desktop only) */}
-      {!isLast && (
-        <span
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            right: 0,
-            top: "10%",
-            height: "80%",
-            width: "1px",
-            background: "rgba(255,255,255,0.15)",
-            display: "none",
-          }}
-          className="stat-divider"
-        />
-      )}
-
-      <p
-        style={{
-          fontFamily: "'Space Grotesk', sans-serif",
-          fontWeight: 800,
-          fontSize: "clamp(40px, 6vw, 64px)",
-          lineHeight: 1,
-          color: "var(--white)",
-          margin: 0,
-        }}
-      >
+    <article className="stat-item">
+      <p>
         {count}
-        <span style={{ color: "var(--yellow)" }}>{suffix}</span>
+        <span>{suffix}</span>
       </p>
-
-      <p
-        style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: "14px",
-          color: "rgba(255,255,255,0.7)",
-          marginTop: "10px",
-          marginBottom: 0,
-        }}
-      >
-        {label}
-      </p>
-    </div>
+      <h3>{label}</h3>
+    </article>
   );
 }
 
@@ -130,7 +74,7 @@ export default function StatsCounter() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.24 }
     );
 
     observer.observe(el);
@@ -139,57 +83,114 @@ export default function StatsCounter() {
   }, []);
 
   return (
-    <>
-      <style>{`
-        @media (min-width: 768px) {
-          .stat-divider {
-            display: block !important;
+    <section ref={sectionRef} className="stats-section">
+      <div className="stats-section__intro">
+        <p className="eyebrow">Proof in practice</p>
+        <h2>Trusted travel support, measured simply.</h2>
+      </div>
+      <div className="stats-grid">
+        {stats.map((stat) => (
+          <StatItem key={stat.label} {...stat} active={active} />
+        ))}
+      </div>
+
+      <style jsx global>{`
+        .stats-section {
+          padding: clamp(54px, 7vw, 88px) 20px;
+          background: var(--blue);
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+          color: var(--white);
+        }
+        .stats-section__intro {
+          max-width: 1180px;
+          margin: 0 auto 28px;
+          display: flex;
+          align-items: end;
+          justify-content: space-between;
+          gap: 28px;
+        }
+        .stats-section__intro .eyebrow {
+          color: var(--yellow-lt);
+          flex: 0 0 auto;
+        }
+        .stats-section__intro h2 {
+          max-width: 560px;
+          color: var(--white);
+          font-size: clamp(28px, 4vw, 44px);
+          text-align: right;
+        }
+        .stats-grid {
+          max-width: 1180px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 0;
+          border-top: 1px solid rgba(255,250,242,0.18);
+          border-bottom: 1px solid rgba(255,250,242,0.18);
+        }
+        .stat-item {
+          min-height: 150px;
+          padding: 26px 28px 24px;
+          background: transparent;
+          border-right: 1px solid rgba(255,250,242,0.18);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .stat-item:last-child {
+          border-right: 0;
+        }
+        .stat-item p {
+          color: var(--white);
+          font-family: 'Fraunces', serif;
+          font-size: clamp(42px, 5vw, 66px);
+          font-weight: 750;
+          line-height: 0.95;
+        }
+        .stat-item p span {
+          color: var(--yellow-lt);
+          font-size: 0.48em;
+          margin-left: 2px;
+        }
+        .stat-item h3 {
+          margin-top: 13px;
+          color: rgba(255,250,242,0.76);
+          font-family: 'Manrope', sans-serif;
+          font-size: 13px;
+          font-weight: 900;
+          letter-spacing: 0.02em;
+        }
+        @media (max-width: 1024px) {
+          .stats-section__intro {
+            align-items: start;
+            flex-direction: column;
+          }
+          .stats-section__intro h2 { text-align: left; }
+          .stats-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .stat-item:nth-child(2) {
+            border-right: 0;
+          }
+          .stat-item:nth-child(-n + 2) {
+            border-bottom: 1px solid rgba(255,250,242,0.18);
+          }
+        }
+        @media (max-width: 640px) {
+          .stats-grid {
+            grid-template-columns: 1fr;
+          }
+          .stat-item {
+            min-height: 126px;
+            border-right: 0;
+            border-bottom: 1px solid rgba(255,250,242,0.18);
+          }
+          .stat-item:last-child {
+            border-bottom: 0;
           }
         }
       `}</style>
-
-      <section
-        ref={sectionRef}
-        style={{
-          width: "100%",
-          paddingTop: "64px",
-          paddingBottom: "64px",
-          background: "var(--blue)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            paddingLeft: "24px",
-            paddingRight: "24px",
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "48px 0",
-          }}
-          className="stats-grid"
-        >
-          <style>{`
-            @media (min-width: 768px) {
-              .stats-grid {
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 0 !important;
-              }
-            }
-          `}</style>
-
-          {stats.map((stat, i) => (
-            <StatItem
-              key={stat.label}
-              value={stat.value}
-              suffix={stat.suffix}
-              label={stat.label}
-              active={active}
-              isLast={i === stats.length - 1}
-            />
-          ))}
-        </div>
-      </section>
-    </>
+    </section>
   );
 }

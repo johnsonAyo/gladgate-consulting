@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
-import PaletteSwitcher from "@/components/PaletteSwitcher";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 
@@ -17,7 +16,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <ScrollReveal />
         <main className="flex-1">{children}</main>
-        <PaletteSwitcher />
 
         <footer className="overflow-hidden" style={{ backgroundColor: "var(--blue)", color: "#fff" }}>
           <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 grid grid-cols-1 md:grid-cols-4 gap-14">
@@ -38,12 +36,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </p>
               </span>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>
-                Your trusted travel experts. Study abroad, visas, dream holidays, and flights. We make every journey seamless and exciting.
+                Travel consultancy for study plans, visa applications, holidays, flights, hotels, and insurance, handled with clear steps from first enquiry to final booking.
               </p>
               <div className="flex flex-col gap-2 mt-2">
                 <a href="tel:+447700000000" className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>+44 7700 000 000</a>
                 <a href="mailto:hello@gladgateconsulting.com" className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>hello@gladgateconsulting.com</a>
-                <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>Mon–Fri 9am–6pm · Sat 10am–2pm</p>
+                <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>Monday to Friday 9am to 6pm, Saturday 10am to 2pm</p>
               </div>
             </div>
 
@@ -97,8 +95,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <div className="max-w-6xl mx-auto px-5 md:px-10 py-6 text-center text-xs flex items-center justify-between flex-wrap gap-3"
             style={{ borderTop: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.4)" }}>
-            <span>© {new Date().getFullYear()} Gladgate. All rights reserved.</span>
-            <span>IATA Accredited · ABTA Member · ATOL Protected</span>
+            <span>(c) {new Date().getFullYear()} Gladgate. All rights reserved.</span>
+            <span>IATA Accredited, ABTA Member, ATOL Protected</span>
           </div>
         </footer>
       </body>

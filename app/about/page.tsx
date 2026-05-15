@@ -114,16 +114,18 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="section-tight px-5 md:px-10 text-center" style={{ backgroundColor: "var(--blue)" }}>
-        <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "clamp(26px, 4vw, 42px)", color: "#fff", marginBottom: "14px" }}>
-          Ready to start your journey?
-        </h2>
-        <p className="text-base mb-10 max-w-md mx-auto" style={{ color: "rgba(255,255,255,0.75)", fontWeight: 300 }}>
-          Talk to one of our consultants today, no obligation, no pressure.
-        </p>
-        <Link href="/quote" className="btn btn-primary">
-          Get a Free Quote
-        </Link>
+      <section className="section-tight px-5 md:px-10" style={{ backgroundColor: "var(--blue)" }}>
+        <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+          <h2 className="display-sm" style={{ color: "var(--white)" }}>
+            Ready to start your journey?
+          </h2>
+          <p className="lead mt-5 max-w-lg" style={{ color: "rgba(255,250,242,0.76)" }}>
+            Talk to one of our consultants today, with no obligation and no pressure.
+          </p>
+          <Link href="/quote" className="btn btn-light mt-9">
+            Get a free quote
+          </Link>
+        </div>
       </section>
     </div>
   );

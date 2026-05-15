@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 
 type Service = "study-abroad" | "visa" | "holidays" | "flights" | "";
 type Status = "idle" | "sending" | "success" | "error";
@@ -60,7 +60,11 @@ function TierPicker({ tiers, selected, onSelect }: { tiers: Record<string, numbe
 }
 
 export default function Quote() {
-  const [service, setService] = useState<Service>("");
+  const [service, setService] = useState<Service>(() => {
+    if (typeof window === "undefined") return "";
+    const value = new URLSearchParams(window.location.search).get("service");
+    return SERVICES.some((item) => item.id === value) ? (value as Service) : "";
+  });
   const [status, setStatus] = useState<Status>("idle");
 
   const [name, setName] = useState("");
@@ -84,11 +88,6 @@ export default function Quote() {
   const [fDate, setFDate] = useState(""); const [fReturn, setFReturn] = useState(""); const [fAdults, setFAdults] = useState("1");
   const [fChildren, setFChildren] = useState("0"); const [fInfants, setFInfants] = useState("0"); const [fClass, setFClass] = useState("");
   const [fTier, setFTier] = useState("");
-
-  useEffect(() => {
-    const p = new URLSearchParams(window.location.search).get("service") as Service | null;
-    if (p) setService(p);
-  }, []);
 
   const estimate = useMemo(() => {
     if (service === "study-abroad" && sTier) {

@@ -74,15 +74,16 @@ function applyPalette(palette: Palette) {
 
 export default function PaletteSwitcher() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("slate-teal");
+  const [active, setActive] = useState(() => {
+    if (typeof window === "undefined") return "slate-teal";
+    const saved = localStorage.getItem("gladgate-palette");
+    return palettes.some((p) => p.id === saved) ? saved : "slate-teal";
+  });
 
   useEffect(() => {
-    const saved = localStorage.getItem("gladgate-palette");
-    if (saved) {
-      const p = palettes.find((p) => p.id === saved);
-      if (p) { applyPalette(p); setActive(p.id); }
-    }
-  }, []);
+    const p = palettes.find((palette) => palette.id === active);
+    if (p) applyPalette(p);
+  }, [active]);
 
   function select(p: Palette) {
     applyPalette(p);
