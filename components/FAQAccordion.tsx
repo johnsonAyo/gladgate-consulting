@@ -49,7 +49,7 @@ function FAQCard({
       >
         <span
           style={{
-            fontFamily: "'Poppins', sans-serif",
+            fontFamily: "'Space Grotesk', sans-serif",
             fontWeight: 600,
             fontSize: "15px",
             color: "var(--text)",
@@ -62,7 +62,7 @@ function FAQCard({
         <span
           aria-hidden="true"
           style={{
-            fontFamily: "'Poppins', sans-serif",
+            fontFamily: "'Space Grotesk', sans-serif",
             fontWeight: 700,
             fontSize: "20px",
             color: "var(--blue)",

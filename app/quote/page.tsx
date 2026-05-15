@@ -27,7 +27,7 @@ const inputStyle: React.CSSProperties = {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label style={{ display: "block", fontSize: "12px", fontWeight: 600, marginBottom: "6px", color: "var(--text)", fontFamily: "'Poppins', sans-serif" }}>
+      <label style={{ display: "block", fontSize: "12px", fontWeight: 600, marginBottom: "6px", color: "var(--text)", fontFamily: "'Space Grotesk', sans-serif" }}>
         {label}
       </label>
       {children}
@@ -51,8 +51,8 @@ function TierPicker({ tiers, selected, onSelect }: { tiers: Record<string, numbe
         <button key={tier} type="button" onClick={() => onSelect(tier === selected ? "" : tier)}
           className="p-4 text-left transition-all rounded-xl"
           style={{ border: `2px solid ${selected === tier ? "var(--blue)" : "var(--border)"}`, backgroundColor: selected === tier ? "var(--sky)" : "#fff" }}>
-          <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: selected === tier ? "var(--blue)" : "var(--muted)", fontFamily: "'Poppins', sans-serif" }}>{tier}</p>
-          <p className="font-bold" style={{ fontFamily: "'Poppins', sans-serif", color: "var(--text)", fontSize: "15px" }}>from £{price}</p>
+          <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: selected === tier ? "var(--blue)" : "var(--muted)", fontFamily: "'Space Grotesk', sans-serif" }}>{tier}</p>
+          <p className="font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)", fontSize: "15px" }}>from £{price}</p>
         </button>
       ))}
     </div>
@@ -117,10 +117,10 @@ export default function Quote() {
     e.preventDefault();
     setStatus("sending");
     let details = "";
-    if (service === "study-abroad") details = `Study Abroad — ${sCountry} | ${sLevel} | ${sField} | Intake: ${sIntake} | Unis: ${sUnis} | IELTS: ${sIELTS || "N/A"} | Tier: ${sTier}`;
-    if (service === "visa")         details = `Visa — ${vType} to ${vCountry} | Nationality: ${vNat} | Applicants: ${vApps} | Date: ${vDate} | Refusal: ${vRefusal} | Tier: ${vTier}`;
-    if (service === "holidays")     details = `Holidays — ${hDest} from ${hFrom} | ${hDate1}–${hDate2} | ${hAdults}A ${hChildren}C | ${hStyle} | ${hAccom} | Tier: ${hTier}`;
-    if (service === "flights")      details = `Flights — ${fType}: ${fFrom} → ${fTo} | ${fDate}${fReturn ? `/` + fReturn : ""} | ${fAdults}A ${fChildren}C ${fInfants}I | ${fClass} | Tier: ${fTier}`;
+    if (service === "study-abroad") details = `Study Abroad, ${sCountry} | ${sLevel} | ${sField} | Intake: ${sIntake} | Unis: ${sUnis} | IELTS: ${sIELTS || "N/A"} | Tier: ${sTier}`;
+    if (service === "visa")         details = `Visa, ${vType} to ${vCountry} | Nationality: ${vNat} | Applicants: ${vApps} | Date: ${vDate} | Refusal: ${vRefusal} | Tier: ${vTier}`;
+    if (service === "holidays")     details = `Holidays, ${hDest} from ${hFrom} | ${hDate1}–${hDate2} | ${hAdults}A ${hChildren}C | ${hStyle} | ${hAccom} | Tier: ${hTier}`;
+    if (service === "flights")      details = `Flights, ${fType}: ${fFrom} → ${fTo} | ${fDate}${fReturn ? `/` + fReturn : ""} | ${fAdults}A ${fChildren}C ${fInfants}I | ${fClass} | Tier: ${fTier}`;
     const fd = new FormData();
     fd.append("name", name); fd.append("email", email); fd.append("phone", phone);
     fd.append("service", service); fd.append("details", details);
@@ -133,13 +133,13 @@ export default function Quote() {
   if (status === "success") {
     return (
       <div className="max-w-lg mx-auto px-6 py-32 text-center">
-        <h2 className="font-extrabold mb-4" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "32px", color: "var(--text)" }}>
+        <h2 className="font-extrabold mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "32px", color: "var(--text)" }}>
           Enquiry Received!
         </h2>
         <p className="text-base leading-relaxed mb-2" style={{ color: "var(--muted)" }}>
           Thanks, {name}! A Gladgate consultant will review your enquiry and be in touch within 24 hours.
         </p>
-        <p className="text-sm font-semibold" style={{ color: "var(--blue)", fontFamily: "'Poppins', sans-serif" }}>
+        <p className="text-sm font-semibold" style={{ color: "var(--blue)", fontFamily: "'Space Grotesk', sans-serif" }}>
           Your dream trip is one step closer.
         </p>
       </div>
@@ -147,7 +147,7 @@ export default function Quote() {
   }
 
   const sectionHead: React.CSSProperties = {
-    fontSize: "13px", fontWeight: 700, fontFamily: "'Poppins', sans-serif",
+    fontSize: "13px", fontWeight: 700, fontFamily: "'Space Grotesk', sans-serif",
     color: "var(--blue)", paddingBottom: "10px",
     borderBottom: "2px solid var(--sky)", marginBottom: "4px",
   };
@@ -156,10 +156,10 @@ export default function Quote() {
     <div>
       {/* Hero */}
       <section className="py-16 px-5 md:px-10 text-center" style={{ backgroundColor: "var(--blue)" }}>
-        <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>
+        <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--yellow)", fontFamily: "'Space Grotesk', sans-serif" }}>
           No Obligation · Free Quote
         </p>
-        <h1 className="font-extrabold text-white" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(32px, 5vw, 56px)" }}>
+        <h1 className="font-extrabold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(32px, 5vw, 56px)" }}>
           Get Your Personalised Quote
         </h1>
         <p className="mt-4 text-sm max-w-lg mx-auto" style={{ color: "rgba(255,255,255,0.7)" }}>
@@ -174,7 +174,7 @@ export default function Quote() {
             <button key={s.id} type="button" onClick={() => setService(s.id)}
               className="flex flex-col items-center gap-2 p-5 rounded-2xl text-center transition-all hover:shadow-md"
               style={{ border: `2px solid ${service === s.id ? "var(--blue)" : "var(--border)"}`, backgroundColor: service === s.id ? "var(--sky)" : "#fff" }}>
-              <span className="text-xs font-semibold leading-snug" style={{ color: service === s.id ? "var(--blue)" : "var(--muted)", fontFamily: "'Poppins', sans-serif" }}>{s.label}</span>
+              <span className="text-xs font-semibold leading-snug" style={{ color: service === s.id ? "var(--blue)" : "var(--muted)", fontFamily: "'Space Grotesk', sans-serif" }}>{s.label}</span>
             </button>
           ))}
         </div>
@@ -255,8 +255,8 @@ export default function Quote() {
                   <Field label="Prior Visa Refusal?">
                     <Sel value={vRefusal} onChange={setVRefusal}>
                       <option>No</option>
-                      <option>Yes — same country</option>
-                      <option>Yes — different country</option>
+                      <option>Yes, same country</option>
+                      <option>Yes, different country</option>
                     </Sel>
                   </Field>
                 </div>
@@ -301,7 +301,7 @@ export default function Quote() {
                     {["One-way","Return","Multi-city"].map(t => (
                       <button key={t} type="button" onClick={() => setFType(t)}
                         className="flex-1 py-3 text-xs font-semibold rounded-xl transition-all"
-                        style={{ border: "2px solid", borderColor: fType === t ? "var(--blue)" : "var(--border)", backgroundColor: fType === t ? "var(--sky)" : "transparent", color: fType === t ? "var(--blue)" : "var(--muted)", fontFamily: "'Poppins', sans-serif" }}>
+                        style={{ border: "2px solid", borderColor: fType === t ? "var(--blue)" : "var(--border)", backgroundColor: fType === t ? "var(--sky)" : "transparent", color: fType === t ? "var(--blue)" : "var(--muted)", fontFamily: "'Space Grotesk', sans-serif" }}>
                         {t}
                       </button>
                     ))}
@@ -330,14 +330,14 @@ export default function Quote() {
             {estimate && (
               <div className="rounded-2xl p-6 flex items-center justify-between gap-6" style={{ backgroundColor: "var(--blue)" }}>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "var(--yellow)", fontFamily: "'Space Grotesk', sans-serif" }}>
                     Estimated Service Fee
                   </p>
-                  <p className="font-extrabold text-white" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "42px", lineHeight: 1 }}>
+                  <p className="font-extrabold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "42px", lineHeight: 1 }}>
                     £{estimate.min}{estimate.min !== estimate.max && <span style={{ fontSize: "28px" }}> – £{estimate.max}</span>}
                   </p>
                   <p className="text-xs mt-2" style={{ color: "rgba(255,255,255,0.45)" }}>
-                    Gladgate fee only — government & airline costs separate.
+                    Gladgate fee only, government & airline costs separate.
                   </p>
                 </div>
               </div>
@@ -359,7 +359,7 @@ export default function Quote() {
 
             <button type="submit" disabled={status === "sending" || !name || !email}
               className="rounded-full py-5 text-sm font-bold transition-opacity hover:opacity-85 disabled:opacity-40"
-              style={{ backgroundColor: "var(--coral)", color: "#fff", fontFamily: "'Poppins', sans-serif" }}>
+              style={{ backgroundColor: "var(--coral)", color: "#fff", fontFamily: "'Space Grotesk', sans-serif" }}>
               {status === "sending" ? "Sending…" : "Submit Enquiry →"}
             </button>
 

@@ -21,22 +21,22 @@ export default function Nav() {
     <>
       {/* Top contact bar */}
       <div className="hidden md:block" style={{ backgroundColor: "var(--blue)", color: "rgba(255,255,255,0.85)" }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-10 py-2 flex items-center justify-between text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
-          <div className="flex items-center gap-6">
-            <a href="mailto:hello@gladgateconsulting.com" className="hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.8)", textDecoration: "none" }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-10 py-2.5 flex items-center justify-between" style={{ fontFamily: "'Inter', sans-serif", fontSize: "12.5px", letterSpacing: "0.01em" }}>
+          <div className="flex items-center gap-7">
+            <a href="mailto:hello@gladgateconsulting.com" className="hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "none" }}>
               hello@gladgateconsulting.com
             </a>
-            <a href="tel:+447700000000" className="hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.8)", textDecoration: "none" }}>
+            <a href="tel:+447700000000" className="hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.78)", textDecoration: "none" }}>
               +44 7700 000 000
             </a>
           </div>
-          <span style={{ color: "rgba(255,255,255,0.6)" }}>Mon–Fri 9am–6pm · Sat 10am–2pm</span>
+          <span style={{ color: "rgba(255,255,255,0.55)" }}>Mon–Fri 9am–6pm · Sat 10am–2pm</span>
         </div>
       </div>
 
       {/* Main nav */}
-      <header className="sticky top-0 z-50 bg-white" style={{ borderBottom: "1px solid var(--border)", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-        <nav className="max-w-6xl mx-auto px-5 md:px-10 h-16 flex items-center justify-between">
+      <header className="sticky top-0 z-50" style={{ backgroundColor: "rgba(255,255,255,0.88)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(15,23,42,0.07)" }}>
+        <nav className="max-w-6xl mx-auto px-5 md:px-10 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" style={{ textDecoration: "none" }}>
             <span style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
@@ -48,26 +48,24 @@ export default function Nav() {
                 <path d="M2.5 9.5 Q15 7.5 27.5 9.5" stroke="#FF5C35" strokeWidth="1.3" fill="none"/>
                 <path d="M2.5 20.5 Q15 22.5 27.5 20.5" stroke="#FF5C35" strokeWidth="1.3" fill="none"/>
               </svg>
-              <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "19px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--blue)" }}>
+              <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "19px", letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--blue)" }}>
                 Glad<span style={{ color: "var(--coral)" }}>gate</span>
               </span>
             </span>
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-6">
+          <ul className="hidden lg:flex items-center gap-9">
             {links.map(({ href, label }) => (
               <li key={href}>
                 {label === "Contact Us" ? (
-                  <Link href={href}
-                    className="px-5 py-2.5 text-sm font-semibold transition-all hover:opacity-85 rounded-full"
-                    style={{ backgroundColor: "var(--coral)", color: "#fff", fontFamily: "'Poppins', sans-serif", textDecoration: "none" }}>
+                  <Link href={href} className="btn btn-primary" style={{ padding: "12px 26px", fontSize: "13px" }}>
                     {label}
                   </Link>
                 ) : (
                   <Link href={href}
-                    className="text-sm transition-opacity hover:opacity-60"
-                    style={{ color: pathname === href ? "var(--blue)" : "var(--muted)", fontWeight: pathname === href ? 600 : 400, textDecoration: "none", fontFamily: "'Inter', sans-serif" }}>
+                    className="transition-colors hover:opacity-100"
+                    style={{ fontSize: "14px", color: pathname === href ? "var(--blue)" : "var(--text)", fontWeight: pathname === href ? 600 : 500, opacity: pathname === href ? 1 : 0.7, textDecoration: "none", fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "-0.01em" }}>
                     {label}
                   </Link>
                 )}

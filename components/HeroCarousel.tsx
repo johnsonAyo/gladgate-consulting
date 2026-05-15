@@ -7,26 +7,26 @@ const slides = [
   {
     img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1800&q=85",
     tagline: "10 Years of Experience",
-    headline: "Unlock Global Adventures Through Our Visa & Passport Services.",
+    headline: "Unlock global adventures through our visa and passport services.",
     sub: "",
   },
   {
     img: "https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=1800&q=85",
     tagline: "",
-    headline: "Visa Refusal Resolution.",
+    headline: "Visa refusal resolution.",
     sub: "We offer expert assistance to contest your UK visa refusal.",
   },
   {
     img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85",
     tagline: "",
-    headline: "Seamless Visa Services.",
+    headline: "Seamless visa services.",
     sub: "Simplifying global travel with hassle-free visa processing.",
   },
   {
     img: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1800&q=85",
     tagline: "",
-    headline: "Your Dream Trip Starts Here.",
-    sub: "Study abroad, holidays, and flights — handled from start to finish.",
+    headline: "Your dream trip starts here.",
+    sub: "Study abroad, holidays, and flights, handled from start to finish.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function HeroCarousel() {
   const slide = slides[current];
 
   return (
-    <section className="relative overflow-hidden" style={{ minHeight: "92vh", display: "flex", alignItems: "center" }}>
+    <section className="relative overflow-hidden" style={{ minHeight: "80vh", display: "flex", alignItems: "center" }}>
       {/* Slides */}
       {slides.map((s, i) => (
         <div key={i} className="absolute inset-0" style={{ opacity: i === current ? 1 : 0, transition: "opacity 1s ease-in-out", zIndex: i === current ? 1 : 0 }}>
@@ -61,35 +61,27 @@ export default function HeroCarousel() {
       ))}
 
       {/* Overlay */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.15) 100%)", zIndex: 2 }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(8,15,30,0.6) 0%, rgba(8,15,30,0.3) 55%, rgba(8,15,30,0.08) 100%)", zIndex: 2 }} />
 
       {/* Content */}
       <div className="relative w-full max-w-6xl mx-auto px-5 md:px-10" style={{ zIndex: 3 }}>
         <div className="max-w-2xl">
           {slide.tagline && (
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5"
-              style={{ backgroundColor: "var(--yellow)", color: "#000", fontFamily: "'Poppins', sans-serif", letterSpacing: "0.05em" }}>
+            <p className="eyebrow mb-7" style={{ color: "var(--yellow)" }}>
               {slide.tagline}
-            </span>
+            </p>
           )}
-          <h1 key={current} style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "clamp(36px, 6vw, 70px)", lineHeight: 1.12, color: "#fff", animation: "fadeUp 0.6s ease" }}>
+          <h1 key={current} style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "clamp(32px, 4.4vw, 54px)", lineHeight: 1.18, color: "#fff", animation: "fadeUp 0.6s ease" }}>
             {slide.headline}
           </h1>
           {slide.sub && (
-            <p className="mt-5 text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.82)", maxWidth: "520px", fontFamily: "'Inter', sans-serif" }}>
+            <p className="mt-6 text-lg" style={{ color: "rgba(255,255,255,0.82)", maxWidth: "520px", fontFamily: "'Inter', sans-serif", fontWeight: 300, lineHeight: 1.75 }}>
               {slide.sub}
             </p>
           )}
-          <div className="flex flex-col sm:flex-row gap-3 mt-10">
-            <Link href="/quote"
-              className="inline-block px-9 py-4 font-bold text-sm rounded-full text-center transition-all hover:opacity-90"
-              style={{ backgroundColor: "var(--coral)", color: "#fff", fontFamily: "'Poppins', sans-serif" }}>
-              Get a Free Quote
-            </Link>
-            <Link href="/services"
-              className="inline-block px-9 py-4 font-semibold text-sm rounded-full text-center transition-all hover:opacity-80"
-              style={{ backgroundColor: "rgba(255,255,255,0.15)", color: "#fff", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.35)", fontFamily: "'Poppins', sans-serif" }}>
-              Our Services
+          <div className="mt-11">
+            <Link href="/quote" className="btn btn-primary">
+              Get a Free Quote →
             </Link>
           </div>
         </div>

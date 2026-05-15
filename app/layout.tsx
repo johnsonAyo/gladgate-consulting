@@ -2,25 +2,27 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import PaletteSwitcher from "@/components/PaletteSwitcher";
+import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Gladgate — Travel Experts",
-  description: "Study abroad, visa applications, holidays, tours, and flight bookings — all handled by Gladgate.",
+  title: "Gladgate | Travel Experts",
+  description: "Study abroad, visa applications, holidays, tours, and flight bookings, all handled by Gladgate.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning>
       <body className="min-h-full flex flex-col" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
         <Nav />
+        <ScrollReveal />
         <main className="flex-1">{children}</main>
         <PaletteSwitcher />
 
         <footer style={{ backgroundColor: "var(--blue)", color: "#fff" }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-10 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 grid grid-cols-1 md:grid-cols-4 gap-14">
 
-            {/* Col 1 — Brand + contact */}
+            {/* Col 1, Brand + contact */}
             <div className="md:col-span-1 flex flex-col gap-4">
               <span style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
                 <svg width="26" height="26" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <path d="M2.5 9.5 Q15 7.5 27.5 9.5" stroke="#FFB800" strokeWidth="1.3" fill="none"/>
                   <path d="M2.5 20.5 Q15 22.5 27.5 20.5" stroke="#FFB800" strokeWidth="1.3" fill="none"/>
                 </svg>
-                <p style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "20px", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "20px", letterSpacing: "0.06em", textTransform: "uppercase" }}>
                   Glad<span style={{ color: "var(--yellow)" }}>gate</span>
                 </p>
               </span>
@@ -45,9 +47,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
 
-            {/* Col 2 — Quick Links */}
+            {/* Col 2, Quick Links */}
             <div className="flex flex-col gap-3">
-              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>Quick Links</p>
+              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)", fontFamily: "'Space Grotesk', sans-serif" }}>Quick Links</p>
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About Us" },
@@ -59,9 +61,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               ))}
             </div>
 
-            {/* Col 3 — Our Services */}
+            {/* Col 3, Our Services */}
             <div className="flex flex-col gap-3">
-              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>Our Services</p>
+              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)", fontFamily: "'Space Grotesk', sans-serif" }}>Our Services</p>
               {[
                 { href: "/services#visa", label: "Visa Processing" },
                 { href: "/services#study-abroad", label: "Study Abroad" },
@@ -74,9 +76,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               ))}
             </div>
 
-            {/* Col 4 — Need Help */}
+            {/* Col 4, Need Help */}
             <div className="flex flex-col gap-3">
-              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>Need Help?</p>
+              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)", fontFamily: "'Space Grotesk', sans-serif" }}>Need Help?</p>
               {[
                 { href: "/services#faq", label: "FAQs" },
                 { href: "/contact", label: "Contact Us" },
@@ -93,8 +95,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
 
-          <div className="px-5 md:px-10 py-4 text-center text-xs flex items-center justify-between flex-wrap gap-3"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.35)" }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-10 py-6 text-center text-xs flex items-center justify-between flex-wrap gap-3"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.4)" }}>
             <span>© {new Date().getFullYear()} Gladgate. All rights reserved.</span>
             <span>IATA Accredited · ABTA Member · ATOL Protected</span>
           </div>

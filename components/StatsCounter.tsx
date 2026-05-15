@@ -88,7 +88,7 @@ function StatItem({
 
       <p
         style={{
-          fontFamily: "'Poppins', sans-serif",
+          fontFamily: "'Space Grotesk', sans-serif",
           fontWeight: 800,
           fontSize: "clamp(40px, 6vw, 64px)",
           lineHeight: 1,

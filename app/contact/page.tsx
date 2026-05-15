@@ -55,7 +55,7 @@ const channels = [
     label: "Instagram",
     value: "@gladgateconsulting",
     href: "https://instagram.com/gladgateconsulting",
-    note: "DMs welcome — we respond fast",
+    note: "DMs welcome, we respond fast",
     color: "#dc2743",
     bg: "#FFF0F3",
   },
@@ -63,43 +63,45 @@ const channels = [
 
 const faqs = [
   { q: "How quickly do you respond?",          a: "Within 24 hours on weekdays. WhatsApp is fastest during business hours." },
-  { q: "Do I need to pay to get a quote?",     a: "No — quotes are completely free and come with no obligation whatsoever." },
+  { q: "Do I need to pay to get a quote?",     a: "No, quotes are completely free and come with no obligation whatsoever." },
   { q: "Can you help with last-minute bookings?", a: "Yes! Call or WhatsApp us directly for urgent requests and we'll do our best." },
-  { q: "Do you work with clients outside the UK?", a: "Absolutely. We work with clients globally — our travel services have no borders." },
+  { q: "Do you work with clients outside the UK?", a: "Absolutely. We work with clients globally, our travel services have no borders." },
 ];
 
 export default function Contact() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-20 px-5 md:px-10 text-center" style={{ backgroundColor: "var(--blue)" }}>
-        <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>
-          Get in Touch
-        </p>
-        <h1 className="font-extrabold text-white leading-tight" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(36px, 6vw, 64px)" }}>
-          We&apos;d Love to<br />
-          <span style={{ color: "var(--coral)" }}>Hear from You</span>
-        </h1>
-        <p className="mt-5 text-base max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
-          Whether you have a question, need advice, or are ready to book — our team is ready and waiting.
-        </p>
+      <section className="page-banner px-5 md:px-10">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="page-banner__img" src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1800&q=80" alt="" />
+        <div className="page-banner__veil" />
+        <div className="page-banner__inner reveal max-w-6xl mx-auto">
+          <p className="eyebrow mb-6" style={{ color: "var(--yellow)" }}>Get in Touch</p>
+          <h1 className="text-white" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "clamp(40px, 6.4vw, 72px)", lineHeight: 1.08 }}>
+            We&apos;d Love to <span style={{ color: "var(--coral)" }}>Hear from You</span>
+          </h1>
+          <p className="mt-5 text-lg max-w-xl" style={{ color: "rgba(255,255,255,0.78)", fontWeight: 300 }}>
+            Whether you have a question, need advice, or are ready to book, our team is ready and waiting.
+          </p>
+        </div>
       </section>
 
       {/* Contact cards */}
-      <div className="max-w-6xl mx-auto px-5 md:px-10 py-16">
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+      <div className="max-w-6xl mx-auto px-5 md:px-10 section">
+        <div className="grid md:grid-cols-3 gap-7 mb-20">
           {channels.map((c) => (
             <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer"
-              className="rounded-2xl px-6 py-5 flex items-center gap-5 transition-all hover:shadow-lg hover:-translate-y-0.5"
-              style={{ backgroundColor: c.bg, border: "1px solid var(--border)", textDecoration: "none" }}>
-              <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl" style={{ backgroundColor: c.color + "22" }}>
+              className="card-soft px-7 py-6 flex items-center gap-5"
+              style={{ textDecoration: "none" }}>
+              <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: c.color + "18", borderRadius: "var(--r-sm)" }}>
                 <c.Icon />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: c.color, fontFamily: "'Poppins', sans-serif" }}>
+                <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: c.color, fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "0.14em" }}>
                   {c.label}
                 </p>
-                <p className="font-bold mb-0.5" style={{ fontFamily: "'Poppins', sans-serif", color: "var(--text)", fontSize: "14px", wordBreak: "break-all" }}>
+                <p className="font-bold mb-0.5" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)", fontSize: "14px", wordBreak: "break-all" }}>
                   {c.value}
                 </p>
                 <p className="text-xs" style={{ color: "var(--muted)" }}>{c.note}</p>
@@ -110,8 +112,8 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Office hours */}
-          <div className="rounded-2xl p-8" style={{ backgroundColor: "#fff", border: "1px solid var(--border)" }}>
-            <h2 className="font-bold mb-6" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "22px", color: "var(--text)" }}>
+          <div className="card-soft p-9">
+            <h2 className="font-bold mb-7" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "22px", color: "var(--text)" }}>
               Office Hours
             </h2>
             <div className="flex flex-col gap-4">
@@ -122,8 +124,8 @@ export default function Contact() {
               ].map((h) => (
                 <div key={h.day} className="flex items-center justify-between py-3"
                   style={{ borderBottom: "1px solid var(--border)" }}>
-                  <span className="text-sm font-medium" style={{ color: "var(--text)", fontFamily: "'Poppins', sans-serif" }}>{h.day}</span>
-                  <span className="text-sm font-semibold" style={{ color: h.time === "Closed" ? "var(--muted)" : "var(--blue)", fontFamily: "'Poppins', sans-serif" }}>{h.time}</span>
+                  <span className="text-sm font-medium" style={{ color: "var(--text)", fontFamily: "'Space Grotesk', sans-serif" }}>{h.day}</span>
+                  <span className="text-sm font-semibold" style={{ color: h.time === "Closed" ? "var(--muted)" : "var(--blue)", fontFamily: "'Space Grotesk', sans-serif" }}>{h.time}</span>
                 </div>
               ))}
             </div>
@@ -132,14 +134,14 @@ export default function Contact() {
 
           {/* FAQ */}
           <div>
-            <h2 className="font-bold mb-6" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "22px", color: "var(--text)" }}>
+            <h2 className="font-bold mb-7" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "22px", color: "var(--text)" }}>
               Quick Answers
             </h2>
             <div className="flex flex-col gap-4">
               {faqs.map((f) => (
-                <div key={f.q} className="rounded-xl p-5" style={{ backgroundColor: "#fff", border: "1px solid var(--border)" }}>
-                  <p className="text-sm font-semibold mb-1" style={{ color: "var(--text)", fontFamily: "'Poppins', sans-serif" }}>{f.q}</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>{f.a}</p>
+                <div key={f.q} className="card-soft p-6">
+                  <p className="text-sm font-semibold mb-1.5" style={{ color: "var(--text)", fontFamily: "'Space Grotesk', sans-serif" }}>{f.q}</p>
+                  <p className="text-sm" style={{ color: "var(--muted)" }}>{f.a}</p>
                 </div>
               ))}
             </div>
@@ -148,26 +150,22 @@ export default function Contact() {
       </div>
 
       {/* Quote CTA */}
-      <section className="mx-5 md:mx-10 mb-16 rounded-3xl overflow-hidden" style={{ backgroundColor: "var(--blue)" }}>
-        <div className="px-10 py-16 grid md:grid-cols-2 gap-10 items-center">
+      <section className="mx-5 md:mx-10 mb-20 overflow-hidden" style={{ backgroundColor: "var(--blue)", borderRadius: "var(--r-lg)" }}>
+        <div className="px-10 md:px-16 py-20 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>
-              Ready to Go?
-            </p>
-            <h2 className="font-extrabold text-white leading-tight" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(28px, 4vw, 40px)" }}>
-              Get your personalised<br />quote in 2 minutes
+            <p className="eyebrow mb-6" style={{ color: "var(--yellow)" }}>Ready to Go?</p>
+            <h2 className="font-extrabold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.1 }}>
+              Get your personalised quote in 2 minutes
             </h2>
-            <p className="mt-4 text-sm" style={{ color: "rgba(255,255,255,0.65)" }}>
-              Fill in our quick form and we&apos;ll come back to you with a tailored plan — no cost, no commitment.
+            <p className="mt-5 text-base" style={{ color: "rgba(255,255,255,0.7)", fontWeight: 300, lineHeight: 1.8 }}>
+              Fill in our quick form and we&apos;ll come back to you with a tailored plan, no cost, no commitment.
             </p>
           </div>
           <div className="flex flex-col gap-4 md:items-end">
-            <Link href="/quote"
-              className="rounded-full px-10 py-4 text-sm font-semibold text-center transition-all hover:opacity-85"
-              style={{ backgroundColor: "var(--coral)", color: "#fff", textDecoration: "none", fontFamily: "'Poppins', sans-serif", display: "inline-block" }}>
+            <Link href="/quote" className="btn btn-primary">
               Get a Free Quote →
             </Link>
-            <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>No payment required. A consultant replies within 24 hours.</p>
+            <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>No payment required. A consultant replies within 24 hours.</p>
           </div>
         </div>
       </section>

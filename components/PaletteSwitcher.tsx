@@ -74,7 +74,7 @@ function applyPalette(palette: Palette) {
 
 export default function PaletteSwitcher() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("ocean-blue");
+  const [active, setActive] = useState("slate-teal");
 
   useEffect(() => {
     const saved = localStorage.getItem("gladgate-palette");
@@ -99,7 +99,7 @@ export default function PaletteSwitcher() {
       {open && (
         <div className="shadow-2xl overflow-hidden" style={{ backgroundColor: "#fff", border: "1px solid #E0E0E0", width: "230px", borderRadius: "16px" }}>
           <p className="text-xs font-semibold tracking-widest uppercase px-4 pt-4 pb-3"
-            style={{ color: "#888", borderBottom: "1px solid #f0f0f0", fontFamily: "'Poppins', sans-serif" }}>
+            style={{ color: "#888", borderBottom: "1px solid #f0f0f0", fontFamily: "'Space Grotesk', sans-serif" }}>
             Choose a Theme
           </p>
           {palettes.map((p) => (
@@ -112,7 +112,7 @@ export default function PaletteSwitcher() {
                 <span className="w-5 h-5 rounded-full border border-white shadow-sm" style={{ backgroundColor: p.vars["--coral"] }} />
                 <span className="w-5 h-5 rounded-full border border-white shadow-sm" style={{ backgroundColor: p.vars["--yellow"] }} />
               </div>
-              <span className="text-xs font-medium flex-1" style={{ color: "#333", fontFamily: "'Poppins', sans-serif" }}>
+              <span className="text-xs font-medium flex-1" style={{ color: "#333", fontFamily: "'Space Grotesk', sans-serif" }}>
                 {p.name}
               </span>
               {active === p.id && (
@@ -131,7 +131,7 @@ export default function PaletteSwitcher() {
       {/* Toggle button */}
       <button onClick={() => setOpen(!open)}
         className="flex items-center gap-2.5 px-4 py-2.5 shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5"
-        style={{ backgroundColor: current.vars["--blue"], color: "#fff", fontFamily: "'Poppins', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: "999px" }}>
+        style={{ backgroundColor: current.vars["--blue"], color: "#fff", fontFamily: "'Space Grotesk', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: "999px" }}>
         <span style={{ display: "inline-flex", gap: "3px" }}>
           {[current.vars["--blue"], current.vars["--coral"], current.vars["--yellow"]].map((c, i) => (
             <span key={i} className="w-2.5 h-2.5 rounded-full border border-white/30" style={{ backgroundColor: c }} />
