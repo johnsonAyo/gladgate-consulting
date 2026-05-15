@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
-      <body className="min-h-full flex flex-col" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
+    <html lang="en" className="scroll-smooth overflow-x-hidden" suppressHydrationWarning>
+      <body className="min-h-[100dvh] flex flex-col overflow-x-hidden" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
         <Nav />
         <ScrollReveal />
         <main className="flex-1">{children}</main>

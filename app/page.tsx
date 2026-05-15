@@ -4,45 +4,45 @@ import StatsCounter from "@/components/StatsCounter";
 import NewsletterForm from "@/components/NewsletterForm";
 
 const services = [
-  { icon: "🎓", title: "Study Abroad",      desc: "Get into your dream university abroad. We handle applications, documents, and visas end-to-end.",           color: "var(--blue)",  bg: "var(--sky)",  href: "/services#study-abroad" },
-  { icon: "🛂", title: "Visa Processing",    desc: "98% approval rate. We prepare your full application so nothing gets missed.",                              color: "var(--teal)",  bg: "#E6FAF8",     href: "/services#visa" },
-  { icon: "🌴", title: "Holidays & Tours",   desc: "Beach escapes, safaris, city breaks, fully planned and tailored to your budget.",                         color: "var(--coral)", bg: "#FFF0EC",     href: "/services#holidays" },
-  { icon: "✈️", title: "Flight Tickets",     desc: "Best fares across every airline. Economy, business, first class, we find and book it all.",               color: "#7C3AED",      bg: "#F5F0FF",     href: "/services#flights" },
+  { icon: "🎓", title: "Study Abroad", desc: "Get into your dream university abroad. We handle applications, documents, and visas end-to-end.", color: "var(--blue)", bg: "var(--sky)", href: "/services#study-abroad" },
+  { icon: "🛂", title: "Visa Processing", desc: "98% approval rate. We prepare your full application so nothing gets missed.", color: "var(--teal)", bg: "#E6FAF8", href: "/services#visa" },
+  { icon: "🌴", title: "Holidays & Tours", desc: "Beach escapes, safaris, city breaks, fully planned and tailored to your budget.", color: "var(--coral)", bg: "#FFF0EC", href: "/services#holidays" },
+  { icon: "✈️", title: "Flight Tickets", desc: "Best fares across every airline. Economy, business, first class, we find and book it all.", color: "#7C3AED", bg: "#F5F0FF", href: "/services#flights" },
 ];
 
 const testimonials = [
-  { title: "Stress-Free from Start to Finish",  body: "Booking flights with Gladgate was an absolute breeze. Their team found the best deals and made everything affordable and completely stress-free. I'll never book another way.", name: "Sarah O." },
-  { title: "Peace of Mind Abroad",              body: "Travelling feels so much safer with their travel insurance. They've got everything covered for unexpected events, I genuinely won't travel without it now.", name: "James A." },
-  { title: "Visa Approved First Time",          body: "I was completely overwhelmed by the visa application process until I found Gladgate. Their guidance and efficiency made the whole thing seamless. Highly recommend!", name: "Chidi B." },
-  { title: "Perfect Stay Every Single Time",    body: "Their hotel reservation service is incredibly reliable. I've had amazing stays at fantastic hotels every trip, all thanks to their expert recommendations and support.", name: "Funke L." },
+  { title: "Stress-Free from Start to Finish", body: "Booking flights with Gladgate was an absolute breeze. Their team found the best deals and made everything affordable and completely stress-free. I'll never book another way.", name: "Sarah O." },
+  { title: "Peace of Mind Abroad", body: "Travelling feels so much safer with their travel insurance. They've got everything covered for unexpected events, I genuinely won't travel without it now.", name: "James A." },
+  { title: "Visa Approved First Time", body: "I was completely overwhelmed by the visa application process until I found Gladgate. Their guidance and efficiency made the whole thing seamless. Highly recommend!", name: "Chidi B." },
+  { title: "Perfect Stay Every Single Time", body: "Their hotel reservation service is incredibly reliable. I've had amazing stays at fantastic hotels every trip, all thanks to their expert recommendations and support.", name: "Funke L." },
 ];
 
 const airlines = [
-  { name: "British Airways",  color: "#2B5DAD" },
-  { name: "Emirates",         color: "#D4213D" },
-  { name: "Qatar Airways",    color: "#5C0632" },
-  { name: "Lufthansa",        color: "#05164D" },
-  { name: "Air France",       color: "#002157" },
+  { name: "British Airways", color: "#2B5DAD" },
+  { name: "Emirates", color: "#D4213D" },
+  { name: "Qatar Airways", color: "#5C0632" },
+  { name: "Lufthansa", color: "#05164D" },
+  { name: "Air France", color: "#002157" },
   { name: "Turkish Airlines", color: "#C70A0C" },
-  { name: "Virgin Atlantic",  color: "#E10A0A" },
+  { name: "Virgin Atlantic", color: "#E10A0A" },
 ];
 
 const tagColors: Record<string, { bg: string; color: string }> = {
-  Romance:     { bg: "#FFE4E8", color: "#E11D48" },
-  Luxury:      { bg: "#FEF3C7", color: "#D97706" },
-  Beach:       { bg: "#DBEAFE", color: "#1D4ED8" },
-  Culture:     { bg: "#F3E8FF", color: "#7C3AED" },
-  Adventure:   { bg: "#DCFCE7", color: "#16A34A" },
-  "City Break":{ bg: "#FFE4D6", color: "#C2410C" },
+  Romance: { bg: "#FFE4E8", color: "#E11D48" },
+  Luxury: { bg: "#FEF3C7", color: "#D97706" },
+  Beach: { bg: "#DBEAFE", color: "#1D4ED8" },
+  Culture: { bg: "#F3E8FF", color: "#7C3AED" },
+  Adventure: { bg: "#DCFCE7", color: "#16A34A" },
+  "City Break": { bg: "#FFE4D6", color: "#C2410C" },
 };
 
 const destinations = [
-  { name: "Santorini", country: "Greece",       img: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80", tag: "Romance" },
-  { name: "Dubai",     country: "UAE",          img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80", tag: "Luxury" },
-  { name: "Maldives",  country: "Indian Ocean", img: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=800&q=80", tag: "Beach" },
-  { name: "Paris",     country: "France",       img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80", tag: "Culture" },
-  { name: "Bali",      country: "Indonesia",    img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80", tag: "Adventure" },
-  { name: "New York",  country: "USA",          img: "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=800&q=80", tag: "City Break" },
+  { name: "Santorini", country: "Greece", img: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80", tag: "Romance" },
+  { name: "Dubai", country: "UAE", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80", tag: "Luxury" },
+  { name: "Maldives", country: "Indian Ocean", img: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=800&q=80", tag: "Beach" },
+  { name: "Paris", country: "France", img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80", tag: "Culture" },
+  { name: "Bali", country: "Indonesia", img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80", tag: "Adventure" },
+  { name: "New York", country: "USA", img: "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=800&q=80", tag: "City Break" },
 ];
 
 export default function Home() {
@@ -82,12 +82,11 @@ export default function Home() {
           {/* 3 feature cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7 reveal-group">
             {[
-              { icon: "🕐", title: "24/7 Support Team",       desc: "Round-the-clock assistance from our dedicated customer care team." },
-              { icon: "⭐", title: "Expert Consultants",      desc: "Specialist advisors with deep knowledge of every destination and visa type." },
-              { icon: "💰", title: "Best Value Guaranteed",   desc: "Competitive pricing across all services, no hidden fees, ever." },
+              { title: "24/7 Support Team", desc: "Round-the-clock assistance from our dedicated customer care team." },
+              { title: "Expert Consultants", desc: "Specialist advisors with deep knowledge of every destination and visa type." },
+              { title: "Best Value Guaranteed", desc: "Competitive pricing across all services, no hidden fees, ever." },
             ].map((f) => (
               <div key={f.title} className="card-soft flex items-start gap-5 p-8">
-                <span className="text-3xl flex-shrink-0">{f.icon}</span>
                 <div>
                   <h3 className="mb-1.5" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "17px", color: "var(--text)" }}>{f.title}</h3>
                   <p className="text-sm" style={{ color: "var(--muted)" }}>{f.desc}</p>
