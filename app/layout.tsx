@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import PaletteSwitcher from "@/components/PaletteSwitcher";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Gladgate — Travel Experts",
@@ -18,7 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <footer style={{ backgroundColor: "var(--blue)", color: "#fff" }}>
           <div className="max-w-6xl mx-auto px-5 md:px-10 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
-            <div className="md:col-span-2 flex flex-col gap-4">
+
+            {/* Col 1 — Brand + contact */}
+            <div className="md:col-span-1 flex flex-col gap-4">
               <span style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
                 <svg width="26" height="26" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="15" cy="15" r="13.5" stroke="#fff" strokeWidth="1.5"/>
@@ -35,25 +38,58 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>
                 Your trusted travel experts. Study abroad, visas, dream holidays, and flights. We make every journey seamless and exciting.
               </p>
-              <div className="flex gap-3 mt-2">
-                {["Flights", "Study Abroad", "Visas", "Holidays"].map((tag) => (
-                  <span key={tag} className="text-xs px-3 py-1 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.8)" }}>{tag}</span>
-                ))}
+              <div className="flex flex-col gap-2 mt-2">
+                <a href="tel:+447700000000" className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>+44 7700 000 000</a>
+                <a href="mailto:hello@gladgateconsulting.com" className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>hello@gladgateconsulting.com</a>
+                <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>Mon–Fri 9am–6pm · Sat 10am–2pm</p>
               </div>
             </div>
 
+            {/* Col 2 — Quick Links */}
             <div className="flex flex-col gap-3">
-              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)" }}>Services</p>
-              {["Study Abroad", "Visa Applications", "Holidays & Tours", "Flight Tickets"].map((s) => (
-                <a key={s} href="/quote" className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>{s}</a>
+              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>Quick Links</p>
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About Us" },
+                { href: "/contact", label: "Contact Us" },
+                { href: "/packages", label: "Travel Packages" },
+                { href: "/visa-refusal", label: "Visa Refusal" },
+              ].map((l) => (
+                <Link key={l.href} href={l.href} className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>{l.label}</Link>
               ))}
             </div>
 
+            {/* Col 3 — Our Services */}
             <div className="flex flex-col gap-3">
-              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)" }}>Contact</p>
-              <a href="mailto:hello@gladgateconsulting.com" className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>hello@gladgateconsulting.com</a>
-              <a href="https://instagram.com/gladgateconsulting" target="_blank" rel="noopener noreferrer" className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>@gladgateconsulting</a>
-              <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>Mon–Fri 9am–6pm · Sat 10am–2pm</p>
+              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>Our Services</p>
+              {[
+                { href: "/services#visa", label: "Visa Processing" },
+                { href: "/services#study-abroad", label: "Study Abroad" },
+                { href: "/services#flights", label: "Flight Ticketing" },
+                { href: "/services#holidays", label: "Holidays & Tours" },
+                { href: "/services#insurance", label: "Travel Insurance" },
+                { href: "/services#hotels", label: "Hotel Reservations" },
+              ].map((l) => (
+                <Link key={l.href} href={l.href} className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>{l.label}</Link>
+              ))}
+            </div>
+
+            {/* Col 4 — Need Help */}
+            <div className="flex flex-col gap-3">
+              <p className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>Need Help?</p>
+              {[
+                { href: "/services#faq", label: "FAQs" },
+                { href: "/contact", label: "Contact Us" },
+                { href: "/visa-refusal", label: "Visa Refusal" },
+                { href: "/quote", label: "Get a Quote" },
+              ].map((l) => (
+                <Link key={l.href} href={l.href} className="text-sm hover:opacity-70 transition-opacity" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none" }}>{l.label}</Link>
+              ))}
+              <div className="mt-3 flex flex-wrap gap-2">
+                {["IATA Accredited", "ABTA Member", "ATOL Protected"].map((a) => (
+                  <span key={a} className="text-xs px-3 py-1 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.8)" }}>{a}</span>
+                ))}
+              </div>
             </div>
           </div>
 

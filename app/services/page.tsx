@@ -1,158 +1,152 @@
 import Link from "next/link";
+import FAQAccordion from "@/components/FAQAccordion";
 
-const services = [
+const serviceDetails = [
   {
-    title: "Study Abroad",
-    tagline: "From application to arrival — we've got you.",
-    desc: "We guide you every step of the way: university shortlisting, personal statements, applications, and student visa strategy. Your dream campus is closer than you think.",
-    includes: [
-      "University shortlisting (up to 10 options)",
-      "Personal statement & SOP drafting",
-      "Application submission & tracking",
-      "Pre-visa guidance & document review",
-      "Accommodation and arrival support",
-    ],
-    tiers: [
-      { name: "Starter",      price: "£150 – £300",     desc: "Shortlisting & consultation" },
-      { name: "Standard",     price: "£400 – £700",     desc: "Applications + document review" },
-      { name: "Full Service", price: "£800 – £1,500",   desc: "End-to-end with visa strategy" },
-    ],
+    id: "visa",
+    title: "Visa Processing & Consultation",
     color: "var(--blue)",
     bg: "var(--sky)",
-    href: "/quote?service=study-abroad",
+    paras: [
+      "At Gladgate, our primary focus is to simplify the often intricate process of obtaining visas for your international travel. We have cultivated deep expertise in visa processing and consultation services to ensure that your journey is nothing short of exceptional. Our dedicated team is here to assist you every step of the way, streamlining the visa application procedure. Whether you're planning a holiday, a business trip, or any international travel, our services are designed to cater to your specific needs — making your travel arrangements as smooth and stress-free as possible.",
+      "With Gladgate, you can trust that your travel plans are in capable hands. Our commitment to excellence shines through in our unwavering dedication to customer satisfaction. We believe that every traveller deserves personalised support, which is why we offer tailored visa solutions. Our experts ensure that you have all the necessary documents and requirements in place, leaving you with peace of mind and more time to focus on your upcoming adventure. Partner with us to embark on your journeys with confidence, knowing that we are your reliable companion for all your visa-related needs.",
+    ],
   },
   {
-    title: "Visa Applications",
-    tagline: "98% approval rate. Your application, our expertise.",
-    desc: "Tourist, student, work, family — we prepare thorough, well-evidenced applications for the strongest possible outcome across all major countries and visa types.",
-    includes: [
-      "Eligibility assessment",
-      "Document checklist & verification",
-      "Cover letter & supporting statement",
-      "Application form completion",
-      "Priority processing & appeal support",
-    ],
-    tiers: [
-      { name: "Self-Serve",       price: "£75 – £150",    desc: "Guidance & checklist only" },
-      { name: "Standard",         price: "£200 – £500",   desc: "Full preparation & submission" },
-      { name: "Complex / Appeal", price: "£600 – £1,200+",desc: "Refusals, appeals & complex cases" },
-    ],
-    color: "var(--coral)",
-    bg: "#FFF4F1",
-    href: "/quote?service=visa",
-  },
-  {
-    title: "Holidays & Tours",
-    tagline: "Tailor-made escapes. Wherever you dream of going.",
-    desc: "Beach resorts, cultural city breaks, adventure safaris, romantic getaways — we design personalised itineraries so every detail is taken care of before you even pack.",
-    includes: [
-      "Personalised itinerary design",
-      "Hotel & resort bookings",
-      "Guided tour arrangements",
-      "Airport transfers & logistics",
-      "Travel insurance advisory",
-    ],
-    tiers: [
-      { name: "Budget",   price: "£50 – £200",  desc: "Planning & booking (3–7 nights)" },
-      { name: "Standard", price: "£150 – £350", desc: "Full package with itinerary" },
-      { name: "Bespoke",  price: "£300 – £500+",desc: "Luxury, private & extended tours" },
-    ],
+    id: "study-abroad",
+    title: "Study Abroad & Admissions",
     color: "var(--teal)",
-    bg: "#E8FAF8",
-    href: "/quote?service=holidays",
+    bg: "#E6FAF8",
+    paras: [
+      "Gladgate extends its services beyond conventional travel arrangements to offer a unique and specialist service: study abroad and admissions processing. With a commitment to facilitating seamless educational journeys, we specialise in securing admissions to prestigious institutions in Canada, the UK, Australia, and other coveted destinations worldwide. Our comprehensive approach is tailored to meet the diverse needs of students aspiring to study abroad.",
+      "We recognise that the application process can be daunting. Therefore, we provide personalised guidance and support at every step — from selecting the right institution to completing the required paperwork and navigating the student visa process. Our experienced team ensures a hassle-free experience from start to finish.",
+      "With deep knowledge of the global educational landscape and extensive networks with universities and schools worldwide, we are well-equipped to handle the complexities of any admission procedure and give your application the strongest possible chance of success.",
+    ],
   },
   {
-    title: "Flight Tickets",
-    tagline: "Best fare. Every route. Every airline.",
-    desc: "We search across all major carriers to find competitive fares — economy through first class, simple returns or complex multi-city routes. Group and family bookings welcome.",
-    includes: [
-      "Fare comparison across all airlines",
-      "One-way, return & multi-city routing",
-      "Economy, business & first class",
-      "Group & family bookings",
-      "Date flexibility & upgrade advisory",
+    id: "flights",
+    title: "Flight Ticketing",
+    color: "#7C3AED",
+    bg: "#F5F0FF",
+    paras: [
+      "Gladgate extends its expertise beyond visa services to provide a comprehensive solution for all your travel needs. We take pride in offering top-notch flight ticketing services that simplify the process of booking your flights. With a keen understanding of the intricacies of air travel, our dedicated team ensures that your journey starts with convenience and efficiency. Whether you're planning a domestic getaway, an international adventure, or a business trip, we're here to assist you in finding the best flight options to suit your preferences and budget.",
+      "Our commitment to delivering outstanding customer experiences remains unwavering. We believe that every traveller deserves a stress-free booking process, and our flight ticketing services are designed to do exactly that. We offer a wide array of flight choices across all major carriers — from securing the most competitive fares to assisting with changes or cancellations. Our team is dedicated to ensuring your travel arrangements are seamless. Choose Gladgate as your trusted partner for flight ticketing and embark on every journey with confidence and ease.",
     ],
-    tiers: [
-      { name: "Economy",            price: "£25 – £50 / ticket", desc: "Service fee per ticket" },
-      { name: "Business / First",   price: "£75 – £150 / ticket",desc: "Service fee per ticket" },
-      { name: "Multi-city / Group", price: "£100 – £250 flat",   desc: "Flat fee per booking" },
+  },
+  {
+    id: "holidays",
+    title: "Holidays & Tours",
+    color: "var(--coral)",
+    bg: "#FFF0EC",
+    paras: [
+      "At Gladgate, we understand that travel is more than just reaching a destination — it's about the experiences and memories created along the way. That's why we go above and beyond to curate meticulously planned tour packages that showcase the very best each destination has to offer. Whether you're dreaming of exploring the historic landmarks of Europe, immersing yourself in the vibrant cultures of Asia, or embarking on a wildlife adventure in Africa, we have the perfect itinerary to fulfil your wanderlust.",
+      "From arranging flights and accommodations to organising sightseeing tours, activities, and culinary experiences, we handle every aspect of your journey with meticulous attention to detail. With Gladgate as your trusted travel partner, you can relax and immerse yourself in the joy of exploration, knowing that every element of your trip has been carefully considered.",
+      "We have the expertise and resources to turn your travel dreams into reality. Let us inspire you to discover the wonders of the world and create memories that will last a lifetime.",
     ],
+  },
+  {
+    id: "insurance",
+    title: "Travel Insurance",
     color: "var(--yellow)",
     bg: "#FFFBEB",
-    href: "/quote?service=flights",
+    paras: [
+      "Gladgate is your comprehensive travel solutions provider, offering a wide range of services to enhance your travel experience. One of our key offerings is travel insurance, designed to provide you with genuine peace of mind during your journeys. Our travel insurance services are tailored to protect you against unforeseen events, ensuring that you can travel with confidence. Whether you're planning a family holiday, a solo adventure, or a business trip, our insurance options are here to safeguard your travel plans and provide you with the support you need when you need it most.",
+      "We understand that unexpected situations can arise while travelling, and that's why we're committed to helping you mitigate risk at every turn. Our team is dedicated to guiding you through the process of selecting the right travel insurance coverage to suit your specific needs. From medical emergencies to trip cancellations, our comprehensive insurance options have you fully covered. Trust Gladgate as your reliable partner for travel insurance, ensuring that you can focus entirely on enjoying your journeys while we take care of your protection.",
+    ],
+  },
+  {
+    id: "hotels",
+    title: "Hotel Reservations",
+    color: "var(--teal)",
+    bg: "#E6FAF8",
+    paras: [
+      "In addition to our full suite of travel services, Gladgate takes pride in offering specialist expertise in hotel reservations, enriching your travel experience with unrivalled convenience and choice. We deeply understand that your choice of accommodation can significantly influence your overall travel satisfaction. With this in mind, we have curated an extensive portfolio of hotels designed to cater to a wide range of preferences and budgets.",
+      "At Gladgate, we recognise that every traveller deserves a comfortable and memorable stay, tailored to their specific needs. Whether you seek luxurious five-star resorts, cosy boutique hotels, budget-friendly accommodations, or anything in between, our portfolio has you covered. We aim to be your trusted travel partner — streamlining the entire planning process. With our expertise across visa processing, flight ticketing, and hotel reservations, you can entrust us to handle every intricate detail, allowing you to immerse yourself fully in the joy of your journey.",
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: "What documents do I need to apply for a visa?",
+    a: [
+      "A valid international passport with at least 6 months remaining before expiry",
+      "Completed visa application form",
+      "Passport-sized photographs to the destination country's specification",
+      "Proof of travel (flight itinerary or booking confirmation)",
+      "Proof of accommodation (hotel booking or host letter)",
+      "Travel insurance covering the duration of your stay",
+    ],
+  },
+  {
+    q: "Do I need to provide a bank statement?",
+    a: "Yes — we typically require 6 months of bank statements. Don't worry if the balance isn't high. What matters is a clear financial history. If funds are lower than expected, we can demonstrate alternative means such as a sponsor, a recently liquidated investment, or other legitimate sources of funding. Our consultants will advise you on how best to present your financial position.",
+  },
+  {
+    q: "What other essential documents may be required?",
+    a: [
+      "Employment letter or proof of self-employment",
+      "6 months of payslips",
+      "Work ID card",
+      "CAC or business registration documents (if self-employed)",
+      "Marriage certificate (if applicable)",
+      "Birth certificates for children included in the application",
+    ],
+  },
+  {
+    q: "What if I don't have all the required documents?",
+    a: "Rest assured — we understand that each individual's circumstances vary, and there is almost always an alternative way to present your situation. Our team of professionals is dedicated to navigating documentation challenges and tailoring the process to your specific needs. When you engage our services, we will listen carefully, assess your documents, and identify exactly what is needed based on your personal circumstances. Your successful application is our priority.",
+  },
+  {
+    q: "Do you guarantee visa approval?",
+    a: "While we cannot guarantee visa approval — no consultant ethically can — our track record stems from our meticulous attention to detail and thorough case preparation. In the unfortunate event of a refusal, we are here to assist at no additional service charge. We will carefully analyse the refusal reasons, provide guidance on re-application, and advise on how to strengthen your next submission. A refusal does not reflect negligence on our part; embassies occasionally implement restrictive measures without specifying reasons.",
+  },
+  {
+    q: "How do you approach UK visa eligibility?",
+    a: "At Gladgate, we prioritise transparency and integrity in everything we do. If a client is found to be ineligible for a UK visa, we will not proceed with the application. However, our commitment to helping clients remains unwavering — we will provide detailed guidance on the steps and requirements needed to become eligible. It is essential to note that not everyone will meet the current eligibility criteria, and even for those who do, a visa is never guaranteed. We will always give you honest, accurate advice so you can make fully informed decisions.",
   },
 ];
 
 export default function Services() {
   return (
     <div>
-      {/* Hero */}
+      {/* Page header */}
       <section className="py-20 px-5 md:px-10 text-center" style={{ backgroundColor: "var(--blue)" }}>
-        <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>
-          What We Do
-        </p>
-        <h1 className="font-extrabold text-white leading-tight" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(36px, 6vw, 64px)" }}>
-          Everything You Need,<br />
-          <span style={{ color: "var(--yellow)" }}>All in One Place</span>
+        <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--yellow)", fontFamily: "'Poppins', sans-serif" }}>What We Do</p>
+        <h1 className="font-extrabold text-white" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(36px, 6vw, 64px)" }}>
+          Our Services
         </h1>
-        <p className="mt-5 text-base max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.7)", fontFamily: "'Inter', sans-serif" }}>
-          Four services, one team, zero stress. Transparent pricing, dedicated consultants, and a 98% success rate you can count on.
+        <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Inter', sans-serif" }}>
+          What We Offer for You
         </p>
       </section>
 
-      {/* Services */}
-      <div className="max-w-6xl mx-auto px-5 md:px-10 py-16 flex flex-col gap-8">
-        {services.map((s, i) => (
-          <div key={s.title} className="rounded-2xl overflow-hidden shadow-sm" style={{ backgroundColor: "#fff", border: "1px solid var(--border)" }}>
-            <div className="grid md:grid-cols-5">
-              {/* Left */}
-              <div className="flex flex-col justify-between p-8 md:p-10 md:col-span-2" style={{ backgroundColor: s.bg }}>
-                <div>
-                  <div className="w-10 h-1.5 rounded-full mb-5" style={{ backgroundColor: s.color }} />
-                  <p className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: s.color, fontFamily: "'Poppins', sans-serif" }}>
-                    Service {["I", "II", "III", "IV"][i]}
-                  </p>
-                  <h2 className="font-extrabold leading-tight mb-3" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(22px, 3vw, 30px)", color: "var(--text)" }}>
-                    {s.title}
-                  </h2>
-                  <p className="text-sm font-semibold mb-4" style={{ color: s.color, fontFamily: "'Poppins', sans-serif" }}>{s.tagline}</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>{s.desc}</p>
-                </div>
-                <ul className="flex flex-col gap-2 mt-6">
-                  {s.includes.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm" style={{ color: "var(--text)" }}>
-                      <span style={{ color: s.color, fontWeight: 700, flexShrink: 0 }}>+</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Right: tiers + CTA */}
-              <div className="flex flex-col gap-4 p-8 md:p-10 md:col-span-3">
-                <p className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "var(--muted)", fontFamily: "'Poppins', sans-serif" }}>
-                  Service Tiers
+      {/* Detailed service blocks */}
+      <div className="max-w-5xl mx-auto px-5 md:px-10 py-16 flex flex-col gap-6">
+        {serviceDetails.map((s, i) => (
+          <div key={s.id} id={s.id} className="rounded-2xl overflow-hidden" style={{ border: "1px solid var(--border)" }}>
+            {/* Colour header bar */}
+            <div className="px-8 py-6 flex items-center gap-4" style={{ backgroundColor: s.bg, borderBottom: "1px solid var(--border)" }}>
+              <div className="w-1 h-10 rounded-full flex-shrink-0" style={{ backgroundColor: s.color }} />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: s.color, fontFamily: "'Poppins', sans-serif" }}>
+                  Service {["I","II","III","IV","V","VI"][i]}
                 </p>
-                <div className="grid grid-cols-1 gap-3">
-                  {s.tiers.map((t) => (
-                    <div key={t.name} className="flex items-center justify-between gap-4 rounded-xl px-5 py-4"
-                      style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)" }}>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-wide mb-0.5" style={{ color: s.color, fontFamily: "'Poppins', sans-serif" }}>
-                          {t.name}
-                        </p>
-                        <p className="text-xs" style={{ color: "var(--muted)" }}>{t.desc}</p>
-                      </div>
-                      <p className="font-bold text-right" style={{ fontFamily: "'Poppins', sans-serif", color: "var(--text)", fontSize: "15px", whiteSpace: "nowrap" }}>
-                        {t.price}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <Link href={s.href}
-                  className="mt-4 rounded-full px-8 py-4 text-sm font-semibold text-center transition-all hover:opacity-85"
-                  style={{ backgroundColor: s.color, color: s.color === "var(--yellow)" ? "var(--text)" : "#fff", textDecoration: "none", fontFamily: "'Poppins', sans-serif", display: "block" }}>
-                  Get a Quote for {s.title} →
+                <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "clamp(20px, 3vw, 26px)", color: "var(--text)" }}>
+                  {s.title}
+                </h2>
+              </div>
+            </div>
+            {/* Body paragraphs */}
+            <div className="px-8 py-7 flex flex-col gap-4" style={{ backgroundColor: "var(--white)" }}>
+              {s.paras.map((p, pi) => (
+                <p key={pi} className="text-sm leading-relaxed" style={{ color: "var(--muted)", fontFamily: "'Inter', sans-serif" }}>{p}</p>
+              ))}
+              <div className="mt-2">
+                <Link href={`/quote?service=${s.id}`}
+                  className="inline-block px-7 py-3 rounded-full text-sm font-semibold transition-all hover:opacity-85"
+                  style={{ backgroundColor: s.color, color: s.color === "var(--yellow)" ? "var(--text)" : "#fff", textDecoration: "none", fontFamily: "'Poppins', sans-serif" }}>
+                  Get a Quote →
                 </Link>
               </div>
             </div>
@@ -160,18 +154,32 @@ export default function Services() {
         ))}
       </div>
 
+      {/* FAQ */}
+      <section className="py-16 px-5 md:px-10" style={{ backgroundColor: "var(--bg)" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--coral)", fontFamily: "'Poppins', sans-serif" }}>FAQ</p>
+            <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "clamp(26px, 4vw, 38px)", color: "var(--text)" }}>
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <FAQAccordion items={faqs} />
+        </div>
+      </section>
+
       {/* Bottom CTA */}
-      <section className="mx-5 md:mx-10 mb-16 rounded-3xl px-8 py-16 text-center" style={{ backgroundColor: "var(--blue)" }}>
-        <p className="text-2xl font-extrabold text-white mb-3" style={{ fontFamily: "'Poppins', sans-serif" }}>
-          Not sure which service you need?
-        </p>
-        <p className="text-sm mb-8 max-w-md mx-auto" style={{ color: "rgba(255,255,255,0.7)" }}>
-          Drop us a message and a consultant will help you figure out the best option — no obligation, no pressure.
-        </p>
-        <Link href="/contact"
-          className="inline-block rounded-full px-10 py-4 text-sm font-semibold transition-all hover:opacity-85"
+      <section className="py-16 px-5 md:px-10 text-center" style={{ backgroundColor: "var(--white)" }}>
+        <h2 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "clamp(24px, 4vw, 38px)", color: "var(--text)", marginBottom: "12px" }}>
+          What type of challenge are you facing? Let&apos;s talk.
+        </h2>
+        <a href="mailto:hello@gladgateconsulting.com" className="block text-sm mb-8"
+          style={{ color: "var(--blue)", fontFamily: "'Inter', sans-serif", textDecoration: "none" }}>
+          hello@gladgateconsulting.com
+        </a>
+        <Link href="/quote"
+          className="inline-block px-10 py-4 rounded-full font-bold text-sm transition-all hover:opacity-90"
           style={{ backgroundColor: "var(--coral)", color: "#fff", textDecoration: "none", fontFamily: "'Poppins', sans-serif" }}>
-          Talk to Us
+          Get a Free Quote
         </Link>
       </section>
     </div>
