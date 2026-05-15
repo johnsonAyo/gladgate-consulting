@@ -12,14 +12,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth overflow-x-hidden" suppressHydrationWarning>
-      <body className="min-h-[100dvh] flex flex-col overflow-x-hidden" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body className="min-h-screen flex flex-col overflow-x-hidden" style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
         <Nav />
         <ScrollReveal />
         <main className="flex-1">{children}</main>
         <PaletteSwitcher />
 
-        <footer style={{ backgroundColor: "var(--blue)", color: "#fff" }}>
+        <footer className="overflow-hidden" style={{ backgroundColor: "var(--blue)", color: "#fff" }}>
           <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 grid grid-cols-1 md:grid-cols-4 gap-14">
 
             {/* Col 1, Brand + contact */}
